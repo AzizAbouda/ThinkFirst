@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  /* Smooth scrollbar in chat */
+  .chat-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .chat-scroll::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .chat-scroll::-webkit-scrollbar-thumb {
+    @apply bg-ink-200 dark:bg-ink-700 rounded-full;
+  }
+}
+
+@layer utilities {
+  .prose-chat {
+    @apply text-[15px] leading-relaxed;
+  }
+
+  /* Make <p> tags inside AI messages have spacing */
+  .prose-chat p + p {
+    @apply mt-3;
+  }
+
+  .prose-chat strong {
+    @apply font-semibold;
+  }
+}
